@@ -41,10 +41,13 @@ export default class Login extends React.Component {
     render() {
         return (
             <View style={styles.container}>
-              <Text style={{marginTop:15,marginBottom:10,fontFamily: 'sans-serif-bold',fontSize:14}}>Login to get a personalized experience & quick checkout </Text>
-                <View style={{flexDirection: 'column',height: 100,justifyContent: 'space-between',width: 350,marginTop:10,marginBottom:15,backgroundColor:'#fff',borderRadius:4,shadowColor: '#000', shadowOffset:{width:0,height:2},shadowOpacity:0.8,shadowRadius:2}}>
+              <View style={{flex:1,justifyContent: 'center',alignItems: 'center'}}>
+              <Text>Login to get a personalized experience & quick checkout </Text>
+                </View>
+                <View style={{flex:2,flexDirection: 'column',justifyContent: 'space-between',width: 350,backgroundColor:'#fff',borderRadius:4,shadowColor: '#000', shadowOffset:{width:0,height:2},shadowOpacity:0.8,shadowRadius:2}}>
                 <TextInput
                     style={{
+                       flex:1.5,
 
                         borderColor:'#eee',
                         borderBottomWidth: 1,
@@ -61,10 +64,10 @@ export default class Login extends React.Component {
                 />
                 <TextInput
                     style={{
-
+                        flex:1.5,
                         borderColor: this.state.backgroundColor || '#ccc',
                         padding:10,
-                        marginBottom: 20,
+
                         borderBottom: 0,
                         borderBottomLeftRadius:2
 
@@ -75,65 +78,67 @@ export default class Login extends React.Component {
                 />
 
                </View>
-              <View style={{flexDirection: 'column', height: 140, width: 350}}>
+              <View style={{flex:2,justifyContent:'space-between',flexDirection: 'column', width: 350,marginTop:20}}>
                     <TouchableOpacity
                         style={{
-                            flex: 1,
+                            flex:1,
                             backgroundColor: '#ff9212',
                             justifyContent: 'center',
                             alignItems: 'center',
-                            marginTop:10,
-                            marginBottom:10,
+
                             borderRadius:4,
 
                         }}
                         onPress={this._onPressButton}>
-                        <Text style={styles.whiteFont}>LOGIN</Text>
+                        <Text style={styles.fontLarge,styles.whiteFont}>LOGIN</Text>
                     </TouchableOpacity>
                     <TouchableOpacity
                         style={{
-                            flex: 1,
-                            backgroundColor: '#999999',
+
+                            flex:1,
                             justifyContent: 'center',
                             alignItems: 'center',
-                            marginTop:10,
-                            borderRadius:4,
-                            fontSize:18
-
-                        }}>
-                        <Text style={styles.whiteFont}>LOGIN WITHOUT PASSWORD</Text>
+                            backgroundColor: '#999999',
+                            marginTop:15,
+                            borderRadius:4
+                         }}>
+                        <Text style={styles.fontLarge,styles.whiteFont}>LOGIN WITHOUT PASSWORD</Text>
                     </TouchableOpacity>
                 </View>
-                 <Text style={styles.whiteFontText}>OR LOGIN USING</Text>
-                <View style={{flexDirection: 'row', justifyContent: 'space-between', height: 50, width: 350}}>
+                <View style={{flex:1,flexDirection: 'column', justifyContent: 'center',alignItems: 'center'}}><Text>OR LOGIN USING</Text></View>
+                <View style={{flex:1,flexDirection: 'row', justifyContent: 'space-between',alignItems: 'center', width: 350}}>
                     <TouchableOpacity
                         style={{
+
                             backgroundColor: '#007ad8',
                             justifyContent: 'center',
                             alignItems: 'center',
-                            width:160,
+                            width:165,
                             borderRadius:4,
+                            padding:20
                           }}
                         onPress={this._fbAuth}>
                         <Text style={styles.whiteFont}>FACEBOOK</Text>
                     </TouchableOpacity>
                     <TouchableOpacity
                         style={{
+
                             backgroundColor: '#d80c14',
                             justifyContent: 'center',
                             alignItems: 'center',
-                            width:160,
+                            width:165,
                             borderRadius:4,
+                            padding:20
                           }}
                         onPress={this._signIn}>
-                        <Text style={styles.whiteFont}>GOOGLE</Text>
+                        <Text style={styles.fontLarge,styles.whiteFont}>GOOGLE</Text>
                     </TouchableOpacity>
                 </View>
-                <Text style={{marginTop:40}}>New to Ferns N Petals ? </Text>
-                  <Text style={{marginTop:20,color:'blue'}}>Register Now</Text>
-                  <View style={{marginTop:100}}>
-                    <Text >Skip</Text>
-                  </View>
+                <View style={styles.common}><Text style={styles.fontLarge,styles.FnP}>New to Ferns N Petals ? </Text></View>
+                  <View style={styles.common}><Text style={styles.fontLarge,styles.register}>Register Now</Text></View>
+
+                    <View style={styles.common}><Text>SKIP</Text></View>
+
             </View>
         );
     }
@@ -159,13 +164,26 @@ const styles = StyleSheet.create({
     red: {
         color: 'red',
     },
-    whiteFont: {
-        color: 'white',fontSize:18
+    common:{
+      flex:1,justifyContent: 'center',alignItems: 'center'
     },
-    whiteFontText: {
-      marginTop:20,
-      marginBottom:20,
-      fontSize:12
+    fontLarge:
+    {
+      fontSize:22
+    },
+    whiteFont:
+    {
+      color:'#ffffff'
+    },
+    FnP:
+    {
+      marginTop:40,justifyContent: 'center'
+    },
+    register:
+    {
+      color:'blue',fontSize:16
     }
+
+
 
 });
