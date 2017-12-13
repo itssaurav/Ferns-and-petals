@@ -1,13 +1,14 @@
 
 import React from 'react';
 import {
-    TextInput,
+    TextInput,Image,
     Text,
     ToastAndroid,
     TouchableOpacity,
     View, StyleSheet
 } from 'react-native';
-import {Card} from 'react-native-elements'
+import {Card,SocialIcon} from 'react-native-elements'
+
 export default class Login extends React.Component {
     constructor(props) {
         super(props);
@@ -51,7 +52,7 @@ export default class Login extends React.Component {
 
                         borderColor:'#eee',
                         borderBottomWidth: 1,
-                        padding:10,
+                        paddingLeft:10,
 
                         marginBottom: 0,
                         borderBottom: 0,
@@ -66,8 +67,7 @@ export default class Login extends React.Component {
                     style={{
                         flex:1.5,
                         borderColor: this.state.backgroundColor || '#ccc',
-                        padding:10,
-
+                        paddingLeft:10,
                         borderBottom: 0,
                         borderBottomLeftRadius:2
 
@@ -90,6 +90,7 @@ export default class Login extends React.Component {
 
                         }}
                         onPress={this._onPressButton}>
+
                         <Text style={styles.fontLarge,styles.whiteFont}>LOGIN</Text>
                     </TouchableOpacity>
                     <TouchableOpacity
@@ -109,7 +110,7 @@ export default class Login extends React.Component {
                 <View style={{flex:1,flexDirection: 'row', justifyContent: 'space-between',alignItems: 'center', width: 350}}>
                     <TouchableOpacity
                         style={{
-
+                            flexDirection: 'row',
                             backgroundColor: '#007ad8',
                             justifyContent: 'center',
                             alignItems: 'center',
@@ -118,11 +119,14 @@ export default class Login extends React.Component {
                             padding:20
                           }}
                         onPress={this._fbAuth}>
+                        <Image style={{marginRight:10,marginTop:2}}
+                          source={require('../../assets/images/facebook-logo.png')}
+                        />
                         <Text style={styles.whiteFont}>FACEBOOK</Text>
                     </TouchableOpacity>
                     <TouchableOpacity
                         style={{
-
+                            flexDirection: 'row',
                             backgroundColor: '#d80c14',
                             justifyContent: 'center',
                             alignItems: 'center',
@@ -131,7 +135,10 @@ export default class Login extends React.Component {
                             padding:20
                           }}
                         onPress={this._signIn}>
-                        <Text style={styles.fontLarge,styles.whiteFont}>GOOGLE</Text>
+                        <Image style={{marginRight:10,color:'#ffffff',marginTop:2}}
+                          source={require('../../assets/images/google-plus.png')}
+                        />
+                      <Text style={styles.fontLarge,styles.whiteFont}>GOOGLE</Text>
                     </TouchableOpacity>
                 </View>
                 <View style={styles.common}><Text style={styles.fontLarge,styles.FnP}>New to Ferns N Petals ? </Text></View>
@@ -175,10 +182,7 @@ const styles = StyleSheet.create({
     {
       color:'#ffffff'
     },
-    FnP:
-    {
-      marginTop:40,justifyContent: 'center'
-    },
+
     register:
     {
       color:'blue',fontSize:16
