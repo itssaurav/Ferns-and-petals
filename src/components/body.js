@@ -116,7 +116,7 @@ export default class Login extends React.Component {
                             alignItems: 'center',
                             width:165,
                             borderRadius:4,
-                            padding:20
+                            padding:18
                           }}
                         onPress={this._fbAuth}>
                         <Image style={{marginRight:10,marginTop:2}}
@@ -132,7 +132,7 @@ export default class Login extends React.Component {
                             alignItems: 'center',
                             width:165,
                             borderRadius:4,
-                            padding:20
+                            padding:18
                           }}
                         onPress={this._signIn}>
                         <Image style={{marginRight:10,color:'#ffffff',marginTop:2}}
