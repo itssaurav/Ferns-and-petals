@@ -49,11 +49,9 @@ export default class Login extends React.Component {
                 <TextInput
                     style={{
                        flex:1.5,
-
                         borderColor:'#eee',
                         borderBottomWidth: 1,
                         paddingLeft:10,
-
                         marginBottom: 0,
                         borderBottom: 0,
                         borderTopLeftRadius:2
@@ -76,7 +74,7 @@ export default class Login extends React.Component {
                     onChangeText={(password) => this.setState({password})} onBlur={() => this.onBlur()}
 
                 />
-
+              <Text style={{position:'absolute',top:78,right:10,color:'blue'}}>Forgot?</Text>
                </View>
               <View style={{flex:2,justifyContent:'space-between',flexDirection: 'column', width: 350,marginTop:20}}>
                     <TouchableOpacity
@@ -111,17 +109,18 @@ export default class Login extends React.Component {
                     <TouchableOpacity
                         style={{
                             flexDirection: 'row',
-                            backgroundColor: '#007ad8',
+                            backgroundColor: '#4f6db1',
                             justifyContent: 'center',
                             alignItems: 'center',
                             width:165,
                             borderRadius:4,
-                            padding:18
+                            padding:16
+
                           }}
                         onPress={this._fbAuth}>
-                        <Image style={{marginRight:10,marginTop:2}}
-                          source={require('../../assets/images/facebook-logo.png')}
-                        />
+                        <Image style={{marginRight:5}}
+                          source={require('../../assets/images/fbLogo.png')}
+                        resizeMode='center' style={{height:15}}/>
                         <Text style={styles.whiteFont}>FACEBOOK</Text>
                     </TouchableOpacity>
                     <TouchableOpacity
@@ -132,13 +131,13 @@ export default class Login extends React.Component {
                             alignItems: 'center',
                             width:165,
                             borderRadius:4,
-                            padding:18
+                            padding:16
                           }}
                         onPress={this._signIn}>
-                        <Image style={{marginRight:10,color:'#ffffff',marginTop:2}}
-                          source={require('../../assets/images/google-plus.png')}
-                        />
-                      <Text style={styles.fontLarge,styles.whiteFont}>GOOGLE</Text>
+                        <Image style={{color:'#ffffff'}}
+                          source={require('../../assets/images/google.png')}
+                         resizeMode='center' style={{height:15,width:20}}/>
+                       <Text style={styles.fontLarge,styles.whiteFont}>GOOGLE</Text>
                     </TouchableOpacity>
                 </View>
                 <View style={styles.common}><Text style={styles.fontLarge,styles.FnP}>New to Ferns N Petals ? </Text></View>
@@ -152,7 +151,7 @@ export default class Login extends React.Component {
 }
 const styles = StyleSheet.create({
     container: {
-        paddingTop: 10,
+        padding:0,
         flex: 1,
         justifyContent: 'flex-start',
         alignItems: 'center',
@@ -180,7 +179,13 @@ const styles = StyleSheet.create({
     },
     whiteFont:
     {
-      color:'#ffffff'
+      color:'#ffffff',
+      marginLeft:10
+
+    },
+    margin10:
+    {
+
     },
 
     register:
