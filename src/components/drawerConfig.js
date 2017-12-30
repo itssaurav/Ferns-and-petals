@@ -1,9 +1,8 @@
-import FirstSceen from './src/components/header2.js'
+import FirstSceen from './src/components/firstScreen'
 import SecondSceen from './src/components/secondScreen'
 import { Image, ScrollView, Text ,View , StyleSheet} from 'react-native';
 import {DrawerNavigator,DrawerItems} from 'react-navigation'
-import DrawerContent from './src/components/drawer';
-
+import DrawerContent from './drawerComponent';
 
 const DrawerExample = DrawerNavigator({
     First:{
@@ -26,14 +25,13 @@ const DrawerExample = DrawerNavigator({
       path:'/sentw',
       screen:SecondSceen
     }
- },{
+},{
   initialRouteName:"First",
   drawerPosition:'left',
   headerMode:'screen',
-  drawerBackgroundColor:'#ffffff',
+  drawerBackgroundColor:'#eee',
   drawerWidth:350,
-  contentComponent:<DrawerContent ...props/>,
-
-
-  });
+  contentComponent:props=>{return(<DrawerContent {...props}/>)}
+  }
+);
 export default DrawerExample;
