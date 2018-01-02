@@ -15,39 +15,10 @@ import AddressRegistration from './src/components/addressRegistartion'
 import ThankyouPage from './src/components/thankyouPage'
 import AddNewReminder from './src/components/addReminder'
 import GalleryImage from './src/components/galleryImage'
+import Drawer from './src/components/drawerMain.js'
 
 
 
-const DrawerExample = DrawerNavigator({
-    First:{
-      path:'/',
-      screen:FirstSceen,
-    },
-    Second:{
-      path:'/sent',
-      screen:SecondSceen
-    },
-    Third:{
-      path:'/sentw',
-      screen:SecondSceen
-    },
-    Fourth:{
-      path:'/sentw',
-      screen:SecondSceen
-    },
-    Fifth:{
-      path:'/sentw',
-      screen:SecondSceen
-    }
-},{
-  initialRouteName:"First",
-  drawerPosition:'left',
-  headerMode:'screen',
-  drawerBackgroundColor:'#eee',
-  drawerWidth:350,
-  contentComponent:props=>{return(<DrawerContent {...props}/>)}
-  }
-);
 export default class App extends Component{
   constructor(props)
   {
@@ -56,7 +27,7 @@ export default class App extends Component{
   render()
   {
     return(
-      <GalleryImage/>
+      <Drawer/>
     );
   }
 }

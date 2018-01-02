@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React,{ Component } from 'react';
 import { Image, ScrollView, Text ,View , StyleSheet} from 'react-native';
 import { Card , Header,Button } from 'react-native-elements';
 import { Dropdown } from 'react-native-material-dropdown';
@@ -15,6 +15,10 @@ const SECTIONS = [
   }
 ];
 export default class HeaderComponent extends Component {
+  constructor(props)
+  {
+    super(props);
+  }
   _renderHeader(section) {
     return (
       <View style={styles.header}>
@@ -31,6 +35,8 @@ export default class HeaderComponent extends Component {
     )
   }
   render() {
+
+    console.log(this.props);
     let data = [{
       value: 'Banana',
     }, {
