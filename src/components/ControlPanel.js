@@ -12,6 +12,7 @@ import  {
 import * as Animatable from 'react-native-animatable';
 import { Dropdown } from 'react-native-material-dropdown';
 import Accordion from 'react-native-collapsible/Accordion';
+import Icon from 'react-native-vector-icons/Feather'
 import PropTypes from 'prop-types';
 const width = Dimensions.get('window').width;
 const SECTIONS = [
@@ -115,7 +116,10 @@ export default class ControlPanel extends Component {
 
     );
   }
-
+  _check()
+  {
+     alert('i m active');
+  }
   _renderContent(section, i, isActive) {
     return (
       <TouchableHighlight>
@@ -151,12 +155,14 @@ export default class ControlPanel extends Component {
     ];
     return (
 
-      <View style={{flex:1,justifyContent: 'flex-start',alignItems: 'center',flexDirection:'column'}}>
+      <View style={{flex:1,justifyContent: 'flex-start',alignItems: 'center',flexDirection:'column',backgroundColor:'#fff'}}>
       <View style={{maxHeight:80,backgroundColor:'#009E23',flexDirection:'row',flex:1,justifyContent: 'center',alignItems: 'center',borderBottomWidth:1,borderColor:'#eee'}}>
-        <View style={{flex:1,justifyContent: 'center',alignItems:'flex-end'}}>
-          <Image source={require('../../assets/images/logo-copy.png')} resizeMode='center' style={{marginRight:20}}/>
+        <View style={{flex:1,justifyContent: 'center',alignItems:'flex-start',paddingLeft:10}}>
+          <View style={{padding:10,backgroundColor:'#fff',borderRadius:30}}>
+            <Icon name='user' size={20} color='#000'/>
+          </View>
         </View>
-        <View style={{flex:3,justifyContent: 'center',alignItems:'flex-start'}}>
+        <View style={{flex:5,justifyContent: 'center',alignItems:'flex-start'}}>
             <Text style={{color:'#fff',fontWeight:'600',fontSize:16}}>Hi Hardeep</Text>
 
         </View>
@@ -174,7 +180,9 @@ export default class ControlPanel extends Component {
         </View>
       </View>
 
-      <View style={{flex:1,justifyContent: 'flex-start',maxHeight:700,alignItems:'center',borderBottomWidth:1,borderColor:'#0606061c',paddingBottom:40,paddingTop:20}}>
+      <View style={{flex:1,maxHeight:350,borderBottomWidth:1,borderColor:'#0606061c',paddingTop:20}}>
+        <View style={{flex:1,justifyContent:'flex-start',alignItems:'flex-start',paddingLeft:20,paddingBottom:20}}><Text style={{fontSize:12}}>Explore</Text></View>
+
         <Accordion style={{flex:1,flexDirection:'column',maxHeight:700,width:width-70}}
           activeSection={this.state.activeSection}
           sections={CONTENT}

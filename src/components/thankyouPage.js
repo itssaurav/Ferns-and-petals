@@ -5,6 +5,7 @@ import Icon from 'react-native-vector-icons/MaterialIcons'
 import * as Progress from 'react-native-progress';
 import Icons from 'react-native-vector-icons/MaterialCommunityIcons'
 import EIcon from 'react-native-vector-icons/Entypo'
+import PropTypes from 'prop-types';
 const WIDTH=Dimensions.get('window').width;
 const HEIGHT=Dimensions.get('window').height;
 export default class ThankyouPage extends Component{
@@ -15,12 +16,40 @@ export default class ThankyouPage extends Component{
       enable:false
     }
   }
+  static contextTypes = {
+    drawer: PropTypes.object.isRequired,
+  };
   render()
   {
     return(
+      <View style={{flex:1}}>
+        <View style={{flex:1,justifyContent: 'center',alignItems: 'flex-start',maxHeight:50,flexDirection:'row'}}>
+        <View style={{flex:4,justifyContent: 'center',alignItems: 'center',flexDirection:'row'}}>
+            <View style={{flex:1,justifyContent: 'center',alignItems: 'flex-start'}} >
+                    <TouchableOpacity onPress={this.context.drawer.open}><Image source={require('../../assets/images/11.png')} resizeMode='center' /></TouchableOpacity>
+            </View>
+            <View style={{flex:4,justifyContent:'flex-start',alignItems:'flex-start'}} >
+                    <Image source={require('../../assets/images/logo.png')} resizeMode='center' style={{width:200,height:50}}/>
+            </View>
+
+        </View>
+       <View style={{flex:2,justifyContent: 'center',alignItems: 'center',flexDirection:'row'}}>
+        <View style={{flex:1,justifyContent: 'center',alignItems:'center'}}>
+            <Image source={require('../../assets/images/10.png')} resizeMode='center' />
+        </View>
+        <View style={{flex:1,justifyContent: 'center',alignItems: 'center'}}>
+
+                <Image source={require('../../assets/images/9.png')} resizeMode='center' />
+        </View>
+        <View style={{flex:1,justifyContent: 'center',alignItems: 'center'}}>
+
+                <Image source={require('../../assets/images/dropdown.png')} resizeMode='center' />
+        </View>
+      </View>
+        </View>
       <ScrollView>
-      <View style={{flex:1,paddingHorizontal:10}}>
-       <View style={{flex:1,borderBottomWidth:2,borderBottomColor:'#eee',minHeight:200}}>
+      <View style={{flex:1,paddingHorizontal:20}}>
+       <View style={{flex:1,borderBottomWidth:2,borderBottomColor:'#eee',minHeight:180}}>
          <View style={{flex:1,flexDirection:'row'}}>
              <View style={{flex:0.3,alignItems:'flex-start',justifyContent:'center'}}>
                   <Image source={require('../../assets/images/tick.png')} style={{width:25,height:25}}/>
@@ -174,6 +203,7 @@ export default class ThankyouPage extends Component{
             </View>
       </View>
       </ScrollView>
+      </View>
     )
   }
 }

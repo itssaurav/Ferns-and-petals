@@ -5,8 +5,7 @@ import FirstSceen from './src/components/header2.js'
 import SecondSceen from './src/components/firstScreen'
 import Accordion from 'react-native-collapsible/Accordion';
 import { Image, ScrollView, Text ,View , StyleSheet} from 'react-native';
-import {DrawerNavigator,DrawerItems} from 'react-navigation'
-import DrawerContent from './src/components/drawerComponent';
+
 import HomeSlider from './src/components/homeSlider2'
 import Cart from './src/components/cartpage.js'
 import TabViewExample from './src/components/tab.js'
@@ -27,7 +26,7 @@ export default class App extends Component{
   render()
   {
     return(
-      <Drawer/>
+      <Drawer data='thankyou'/>
     );
   }
 }

@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import {Image, TextInput,ScrollView,FlatList, Text ,View , StyleSheet,TouchableOpacity,Dimensions} from 'react-native';
-import Header from './header'
+import Header from './Main'
 import Icon from 'react-native-vector-icons/MaterialIcons'
 import CheckBox from 'react-native-checkbox';
+import Drawer from './drawerMain.js'
+import PropTypes from 'prop-types';
 const WIDTH=Dimensions.get('window').width;
 const HEIGHT=Dimensions.get('window').height;
 
@@ -14,6 +16,9 @@ export default class Cart extends Component{
       enable:false
     }
   }
+  static contextTypes = {
+    drawer: PropTypes.object.isRequired,
+  };
   render()
   {
     const ADDRESS=()=>{
@@ -30,9 +35,32 @@ export default class Cart extends Component{
     return(
 
          <View style={{flex:1,height:HEIGHT}}>
-          <Header/>
-             <ScrollView >
-               <View style={{flex:1,marginBottom:50}}>
+           <View style={{flex:1,justifyContent: 'center',alignItems: 'flex-start',maxHeight:50,flexDirection:'row'}}>
+           <View style={{flex:4,justifyContent: 'center',alignItems: 'center',flexDirection:'row'}}>
+               <View style={{flex:1,justifyContent: 'center',alignItems: 'flex-start'}} >
+                       <TouchableOpacity onPress={this.context.drawer.open}><Image source={require('../../assets/images/11.png')} resizeMode='center' /></TouchableOpacity>
+               </View>
+               <View style={{flex:4,justifyContent:'flex-start',alignItems:'flex-start'}} >
+                       <Image source={require('../../assets/images/logo.png')} resizeMode='center' style={{width:200,height:50}}/>
+               </View>
+
+           </View>
+          <View style={{flex:2,justifyContent: 'center',alignItems: 'center',flexDirection:'row'}}>
+           <View style={{flex:1,justifyContent: 'center',alignItems:'center'}}>
+               <Image source={require('../../assets/images/10.png')} resizeMode='center' />
+           </View>
+           <View style={{flex:1,justifyContent: 'center',alignItems: 'center'}}>
+
+                   <Image source={require('../../assets/images/9.png')} resizeMode='center' />
+           </View>
+           <View style={{flex:1,justifyContent: 'center',alignItems: 'center'}}>
+
+                   <Image source={require('../../assets/images/dropdown.png')} resizeMode='center' />
+           </View>
+         </View>
+           </View>
+             <ScrollView>
+               <View style={{flex:1,marginBottom:50,backgroundColor:'#eee'}}>
 
             <View style={{flex:1,flexDirection:'column',position:'relative',marginTop:20}}>
               <View style={{flex:1,flexDirection:'row',width:72,backgroundColor:'#00AB44',borderTopLeftRadius:6,borderTopRightRadius:6,padding:5,marginLeft:20}}>
@@ -175,7 +203,7 @@ export default class Cart extends Component{
                   <View style={{flex:1.5}}><Text style={{fontSize:13}}>Sumit Gupta (9415345312)</Text>
                   <Text style={{fontSize:13,width:156}}>252, JG-3 , VikasPuri , New Delhi,Delhi 110018,India</Text></View></View>
                 </View>:<ADDRESS/>}
-              
+
                 <View style={{flex:1,flexDirection:'row',minHeight:80,paddingTop:20,borderBottomWidth:1,borderBottomColor:'#CDCDCD',paddingBottom:10,paddingRight:20}}>
                   <View style={{flex:3,alignItems:'center'}}><Text style={{fontSize:15,fontWeight:'400'}}>MESSAGE CARD</Text></View>
                   <View style={{flex:3}}>

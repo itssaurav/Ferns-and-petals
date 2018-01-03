@@ -85,11 +85,12 @@ export default class HeaderComponent extends Component {
   constructor(props)
   {
     super(props);
+    this.state = {
+      activeSection: false,
+      collapsed: true,
+    };
   }
-  state = {
-    activeSection: false,
-    collapsed: true,
-  };
+
 
   _toggleExpanded = () => {
     this.setState({ collapsed: !this.state.collapsed });
@@ -158,7 +159,7 @@ export default class HeaderComponent extends Component {
 
     return (
     <View style={{flex:1,justifyContent: 'flex-start',alignItems: 'center',flexDirection:'column'}}>
-    
+
     <View style={{maxHeight:85,backgroundColor:'#009E23',flexDirection:'row',flex:1,justifyContent: 'center',alignItems: 'center',borderBottomWidth:1,borderColor:'#eee'}}>
       <View style={{flex:1,justifyContent: 'center',alignItems:'flex-end'}}>
         <Image source={require('../../assets/images/logo-copy.png')} resizeMode='center' style={{marginRight:20}}/>

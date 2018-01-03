@@ -10,9 +10,15 @@ import PropTypes from 'prop-types';
 import Drawer from 'react-native-drawer'
 
 import ControlPanel from './ControlPanel'
+import Checkout from './checkout'
+import Thankyou from './thankyouPage'
 import Main from './Main'
 
 export default class App extends Component {
+  constructor(props)
+  {
+    super(props)
+  }
   state={
     drawerOpen: false,
     drawerDisabled: false,
@@ -33,21 +39,16 @@ export default class App extends Component {
       panCloseMask={0.2}
       closedDrawerOffset={-3}
       styles={drawerStyles}
-    
+
         >
-        <Main/>
+        {this.props.data=='checkout'?<Checkout/>:(this.props.data=='thankyou'?<Thankyou/>:null)}
       </Drawer>
     )
   }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    padding: 20,
-    flex: 1,
-  }
-})
+
 const drawerStyles = {
-  drawer: { shadowColor: '#000000', shadowOpacity: 0.8, shadowRadius: 3},
+  drawer: { shadowColor: '#000000', shadowOpacity: 0.8, shadowRadius: 3,backgroundColor:'#fff'},
   main: {paddingLeft: 3},
 }

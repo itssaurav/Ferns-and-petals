@@ -7,9 +7,12 @@ import {
   Text,
   TouchableOpacity,
   View,
-  Image
+  Image,
+  Dimensions
 } from 'react-native'
 import PropTypes from 'prop-types';
+const WIDTH=Dimensions.get('window').width;
+const HEIGHT=Dimensions.get('window').height;
 export default class ControlPanel extends Component {
    constructor(props)
    {
