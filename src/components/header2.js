@@ -3,14 +3,12 @@ import Drawer from 'react-native-drawer'
 import { Image, ScrollView, Text ,View , StyleSheet,Button,TouchableOpacity} from 'react-native';
 import PropTypes from 'prop-types';
 export default class FirstScreen extends React.Component {
-  static contextTypes = {
-    drawer: PropTypes.object.isRequired,
-  };
+
   render(){
     return <View style={{flex:1,justifyContent: 'center',alignItems: 'flex-start',maxHeight:50,flexDirection:'row'}}>
     <View style={{flex:4,justifyContent: 'center',alignItems: 'center',flexDirection:'row'}}>
         <View style={{flex:1,justifyContent: 'center',alignItems: 'flex-start'}} >
-                <TouchableOpacity onPress={this.context.drawer.open}><Image source={require('../../assets/images/11.png')} resizeMode='center' /></TouchableOpacity>
+                <TouchableOpacity onPress={this.props.openDrawer}><Image source={require('../../assets/images/11.png')} resizeMode='center' /></TouchableOpacity>
         </View>
         <View style={{flex:4,justifyContent:'flex-start',alignItems:'flex-start'}} >
                 <Image source={require('../../assets/images/logo.png')} resizeMode='center' style={{width:200,height:50}}/>

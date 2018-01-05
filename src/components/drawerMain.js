@@ -36,8 +36,10 @@ export default class App extends Component {
       content={<ControlPanel />}
       tapToClose={true}
       openDrawerOffset={0.2} // 20% gap on the right side of drawer
-      panCloseMask={0.2}
+      panCloseMask={0.5}
+      panOpenMask={0.5}
       closedDrawerOffset={-3}
+      acceptPan={true}
       styles={drawerStyles}
 
         >

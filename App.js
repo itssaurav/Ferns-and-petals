@@ -18,6 +18,7 @@ import Drawer from './src/components/drawerMain.js'
 
 
 
+
 export default class App extends Component{
   constructor(props)
   {
@@ -26,7 +27,7 @@ export default class App extends Component{
   render()
   {
     return(
-      <Drawer data='thankyou'/>
+      <Drawer data = 'checkout'/>
     );
   }
 }

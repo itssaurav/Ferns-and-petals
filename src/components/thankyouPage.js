@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import {Image, TextInput,ScrollView,FlatList, Text ,View , StyleSheet,TouchableOpacity,Dimensions} from 'react-native';
-import Header from './header'
+
 import Icon from 'react-native-vector-icons/MaterialIcons'
 import * as Progress from 'react-native-progress';
 import Icons from 'react-native-vector-icons/MaterialCommunityIcons'
 import EIcon from 'react-native-vector-icons/Entypo'
 import PropTypes from 'prop-types';
+import Header from './header2.js'
 const WIDTH=Dimensions.get('window').width;
 const HEIGHT=Dimensions.get('window').height;
 export default class ThankyouPage extends Component{
@@ -23,6 +24,7 @@ export default class ThankyouPage extends Component{
   {
     return(
       <View style={{flex:1}}>
+          <Header openDrawer={this.context.drawer.open}/>
         <View style={{flex:1,justifyContent: 'center',alignItems: 'flex-start',maxHeight:50,flexDirection:'row'}}>
         <View style={{flex:4,justifyContent: 'center',alignItems: 'center',flexDirection:'row'}}>
             <View style={{flex:1,justifyContent: 'center',alignItems: 'flex-start'}} >
