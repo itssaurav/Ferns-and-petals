@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Drawer from 'react-native-drawer'
 import { Image, ScrollView, Text ,View , StyleSheet,Button,TouchableOpacity} from 'react-native';
 import PropTypes from 'prop-types';
+import { Router,Actions,Scene } from 'react-native-router-flux';
 export default class FirstScreen extends React.Component {
 
   render(){
@@ -16,9 +17,9 @@ export default class FirstScreen extends React.Component {
 
     </View>
    <View style={{flex:2,justifyContent: 'center',alignItems: 'center',flexDirection:'row'}}>
-    <View style={{flex:1,justifyContent: 'center',alignItems:'center'}}>
+    <TouchableOpacity onPress={()=>Actions.flatList()} style={{flex:1,justifyContent: 'center',alignItems:'center'}}>
         <Image source={require('../../assets/images/10.png')} resizeMode='center' />
-    </View>
+    </TouchableOpacity>
     <View style={{flex:1,justifyContent: 'center',alignItems: 'center'}}>
 
             <Image source={require('../../assets/images/9.png')} resizeMode='center' />

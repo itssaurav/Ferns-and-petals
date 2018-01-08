@@ -5,6 +5,8 @@ import Icon from 'react-native-vector-icons/MaterialIcons'
 import CheckBox from 'react-native-checkbox';
 import Drawer from './drawerMain.js'
 import PropTypes from 'prop-types';
+
+import { Router,Actions,Scene } from 'react-native-router-flux';
 const WIDTH=Dimensions.get('window').width;
 const HEIGHT=Dimensions.get('window').height;
 
@@ -24,7 +26,7 @@ export default class Cart extends Component{
     const ADDRESS=()=>{
       return (<View style={{flex:1,flexDirection:'row',minHeight:70,paddingTop:15,paddingLeft:20,borderBottomWidth:1,borderBottomColor:'#CDCDCD',paddingBottom:15,paddingRight:20}}>
                 <View style={{flex:3,alignItems:'flex-start'}}><Text style={{fontSize:15,fontWeight:'400'}}>ADDRESS</Text></View>
-                <View style={{flex:5,alignItems:'center',backgroundColor:'pink'}}>
+                <View style={{flex:5,alignItems:'center'}}>
                   <TouchableOpacity style = {{flex: 1, flexDirection: 'row',alignItems:'center', backgroundColor: '#f19215'}} onPress={()=>{this.setState({ enable:true})}}>
                     <Text style = {{flex:1,color: '#fff',textAlign:'center', paddingTop:0, fontWeight:'900',fontSize: 18}}>ADDRESS</Text>
                   </TouchableOpacity>
@@ -34,7 +36,7 @@ export default class Cart extends Component{
              }
     return(
 
-         <View style={{flex:1,height:HEIGHT}}>
+         <View style={{flex:1,height:HEIGHT,backgroundColor:'#fff'}}>
            <View style={{flex:1,justifyContent: 'center',alignItems: 'flex-start',maxHeight:50,flexDirection:'row'}}>
            <View style={{flex:4,justifyContent: 'center',alignItems: 'center',flexDirection:'row'}}>
                <View style={{flex:1,justifyContent: 'center',alignItems: 'flex-start'}} >
@@ -46,9 +48,9 @@ export default class Cart extends Component{
 
            </View>
           <View style={{flex:2,justifyContent: 'center',alignItems: 'center',flexDirection:'row'}}>
-           <View style={{flex:1,justifyContent: 'center',alignItems:'center'}}>
+           <TouchableOpacity onPress={()=>Actions.flatList()} style={{flex:1,justifyContent: 'center',alignItems:'center'}}>
                <Image source={require('../../assets/images/10.png')} resizeMode='center' />
-           </View>
+           </TouchableOpacity>
            <View style={{flex:1,justifyContent: 'center',alignItems: 'center'}}>
 
                    <Image source={require('../../assets/images/9.png')} resizeMode='center' />
@@ -60,7 +62,7 @@ export default class Cart extends Component{
          </View>
            </View>
              <ScrollView>
-               <View style={{flex:1,marginBottom:50,backgroundColor:'#eee'}}>
+               <View style={{flex:1,marginBottom:50}}>
 
             <View style={{flex:1,flexDirection:'column',position:'relative',marginTop:20}}>
               <View style={{flex:1,flexDirection:'row',width:72,backgroundColor:'#00AB44',borderTopLeftRadius:6,borderTopRightRadius:6,padding:5,marginLeft:20}}>
@@ -315,7 +317,7 @@ export default class Cart extends Component{
            </View>
            </ScrollView>
      <View style={{width:WIDTH,position:'absolute',bottom:0}}>
-       <TouchableOpacity style = {{flex: 1, flexDirection: 'row', backgroundColor: '#f19215', padding: 10, borderRadius: 2, paddingRight: 20, paddingLeft: 20}}>
+       <TouchableOpacity onPress={()=>Actions.cart()} style = {{flex: 1, flexDirection: 'row', backgroundColor: '#f19215', padding: 10, borderRadius: 2, paddingRight: 20, paddingLeft: 20}}>
        <Text style = {{flex:1,color: '#fff',textAlign:'center', paddingTop:0, fontWeight:'900',fontSize: 18}}>PLACE ORDER</Text>
 
 

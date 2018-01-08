@@ -14,7 +14,7 @@ export default class Cart extends Component{
              <ScrollView>
             <View style={{flex:1,flexDirection:'column'}}>
               <View style={{flex:1,marginTop:20,minHeight:330}}>
-                <View style={{flex:1,flexDirection:'row',maxHeight:90,borderBottomWidth:2,borderBottomColor:'#CDCDCD',paddingBottom:10,backgroundColor:'#F8F8F8',paddingRight:20}}>
+                <View style={{flex:1,flexDirection:'row',maxHeight:90,borderBottomWidth:2,borderBottomColor:'#CDCDCD',paddingBottom:10,paddingRight:20}}>
 
                     <View style={{flex:1.5,justifyContent:'center',alignItems:'flex-end'}}>
                          <Image source={require('../../assets/images/engimatic.jpg')} resizeMode='center' style={{width:100,height:70}}/>

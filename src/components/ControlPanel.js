@@ -59,10 +59,10 @@ const styles = StyleSheet.create({
 
   },
   active: {
-    backgroundColor: 'rgba(255,255,255,1)',
+    backgroundColor: 'rgba(255,255,255,1)'
   },
   inactive: {
-    backgroundColor: 'rgba(245,252,255,1)',
+        backgroundColor: '#fff'
   },
   selectors: {
     marginBottom: 10,
@@ -106,11 +106,11 @@ export default class ControlPanel extends Component {
 
   _renderHeader(section, i, isActive) {
     return (
-      <Animatable.View duration={400} style={[styles.header,isActive ? styles.active : styles.inactive,{flex:1,maxHeight:50,flexDirection:'row'}]} transition="backgroundColor">
-           <Animatable.Text style={[styles.headerText,{flex:3,padding:10,maxHeight:40}]}>{section.title}</Animatable.Text>
+      <View duration={400} style={[styles.header,isActive ? styles.active : styles.inactive,{flex:1,maxHeight:50,flexDirection:'row',paddingLeft:20,paddingRight:30}]} transition="backgroundColor">
+           <Text style={[styles.headerText,{flex:3,padding:10,maxHeight:40}]}>{section.title}</Text>
             <Image style={{flex:1}} source={require('../../assets/images/caret-down.png')} resize='center' style={{width:10,height:10}}/>
 
-      </Animatable.View>
+      </View>
 
 
 
@@ -123,9 +123,9 @@ export default class ControlPanel extends Component {
   _renderContent(section, i, isActive) {
     return (
       <TouchableHighlight>
-      <Animatable.View duration={400}  style={[styles.content, isActive ? styles.active : styles.inactive]} transition="backgroundColor">
-        <Animatable.Text animation={isActive ? 'bounceIn' : undefined}>{section.content}</Animatable.Text>
-      </Animatable.View>
+      <View duration={400}  style={[styles.content, isActive ? styles.active : styles.inactive,{paddingLeft:30,paddingRight:30}]} transition="backgroundColor">
+        <Text animation={isActive ? 'bounceIn' : undefined}>{section.content}</Text>
+      </View>
       </TouchableHighlight>
     );
   }
@@ -157,7 +157,7 @@ export default class ControlPanel extends Component {
 
       <View style={{flex:1,justifyContent: 'flex-start',alignItems: 'center',flexDirection:'column',backgroundColor:'#fff'}}>
       <View style={{maxHeight:80,backgroundColor:'#009E23',flexDirection:'row',flex:1,justifyContent: 'center',alignItems: 'center',borderBottomWidth:1,borderColor:'#eee'}}>
-        <View style={{flex:1,justifyContent: 'center',alignItems:'flex-start',paddingLeft:10}}>
+        <View style={{flex:1,justifyContent: 'center',alignItems:'flex-start',paddingLeft:20}}>
           <View style={{padding:10,backgroundColor:'#fff',borderRadius:30}}>
             <Icon name='user' size={20} color='#000'/>
           </View>
@@ -167,23 +167,24 @@ export default class ControlPanel extends Component {
 
         </View>
       </View>
-      <View style={{flex:1,justifyContent: 'center',backgroundColor:'#009E23',alignItems:'center',flexDirection:'row',maxHeight:50}}>
+      <View style={{flex:1,justifyContent: 'center',backgroundColor:'#009E23',alignItems:'center',flexDirection:'row',maxHeight:50,paddingLeft:20,paddingRight:20}}>
 
         <View style={{flex:1,justifyContent: 'center',alignItems:'center'}}>
-            <Text style={{color:'#fff',fontWeight:'600'}}>MY ACCOUNT</Text>
+            <Text style={{color:'#fff',fontWeight:'600',fontSize:14}}>MY ACCOUNT</Text>
         </View>
         <View style={{flex:1,justifyContent: 'center',alignItems:'center'}}>
-              <Text style={{color:'#fff',fontWeight:'600'}}>TAKE ORDER</Text>
+              <Text style={{color:'#fff',fontWeight:'600',fontSize:14}}>TAKE ORDER</Text>
         </View>
         <View style={{flex:1,justifyContent: 'center',alignItems:'center'}}>
-              <Text style={{color:'#fff',fontWeight:'600'}}>HELP LINE</Text>
+              <Text style={{color:'#fff',fontWeight:'600',fontSize:14}}>HELP LINE</Text>
         </View>
       </View>
+        <ScrollView>
+      <View style={{flex:1,borderBottomWidth:1,borderColor:'#0606061c',paddingTop:20}}>
 
-      <View style={{flex:1,maxHeight:350,borderBottomWidth:1,borderColor:'#0606061c',paddingTop:20}}>
-        <View style={{flex:1,justifyContent:'flex-start',alignItems:'flex-start',paddingLeft:20,paddingBottom:20}}><Text style={{fontSize:12}}>Explore</Text></View>
+            <View style={{flex:1,justifyContent:'flex-start',alignItems:'flex-start',paddingLeft:30,paddingBottom:20}}><Text style={{fontSize:12}}>Explore</Text></View>
 
-        <Accordion style={{flex:1,flexDirection:'column',maxHeight:700,width:width-70}}
+        <Accordion style={{flex:1,flexDirection:'column',width:width-70}}
           activeSection={this.state.activeSection}
           sections={CONTENT}
           renderHeader={this._renderHeader}
@@ -191,14 +192,18 @@ export default class ControlPanel extends Component {
           duration={400}
           onChange={this._setSection.bind(this)}
         />
+
+
+
       </View>
-      <View style={{flex:1,flexDirection:'column',justifyContent: 'flex-start',alignItems:'center'}}>
+
+      <View style={{flex:4,flexDirection:'column',justifyContent: 'flex-start',alignItems:'center'}}>
 
 
 
-        <View style={{flex:1,justifyContent: 'flex-start',alignItems:'center',paddingTop:20,paddingBottom:20}}>
+        <View style={{flex:1,justifyContent: 'flex-start',alignItems:'center',paddingTop:20,paddingBottom:20,paddingLeft:30,paddingRight:30}}>
 
-          <View style={{flex:1,justifyContent: 'center',flexDirection:'row',alignItems:'center',paddingLeft:20,paddingRight:20}}>
+          <View style={{flex:1,justifyContent: 'center',flexDirection:'row',alignItems:'center'}}>
             <View style={{flex:2,justifyContent: 'center',alignItems:'flex-start'}}>
                 <Text style={{fontSize:12}}>Same day Delivery</Text>
             </View>
@@ -206,7 +211,7 @@ export default class ControlPanel extends Component {
                     <Image source={require('../../assets/images/diagonal-arrow.png')} resize='center'style={{width:10,height:10}}/>
             </View>
           </View>
-          <View style={{flex:1,justifyContent: 'center',flexDirection:'row',alignItems:'center',paddingLeft:20,paddingRight:20}}>
+          <View style={{flex:1,justifyContent: 'center',flexDirection:'row',alignItems:'center'}}>
             <View style={{flex:1,justifyContent: 'center',alignItems:'flex-start'}}>
                 <Text style={{fontSize:12}}>BirthDay</Text>
             </View>
@@ -214,7 +219,7 @@ export default class ControlPanel extends Component {
                 <Image source={require('../../assets/images/diagonal-arrow.png')} resize='center' style={{width:10,height:10}}/>
             </View>
           </View>
-          <View style={{flex:1,justifyContent: 'center',flexDirection:'row',alignItems:'center',paddingLeft:20,paddingRight:20}}>
+          <View style={{flex:1,justifyContent: 'center',flexDirection:'row',alignItems:'center'}}>
             <View style={{flex:1,justifyContent: 'center',alignItems:'flex-start'}}>
                 <Text style={{fontSize:12}}>Aniversary</Text>
             </View>
@@ -222,7 +227,7 @@ export default class ControlPanel extends Component {
               <Image source={require('../../assets/images/diagonal-arrow.png')} resize='center' style={{width:10,height:10}}/>
             </View>
           </View>
-          <View style={{flex:1,justifyContent: 'center',flexDirection:'row',alignItems:'center',paddingLeft:20,paddingRight:20}}>
+          <View style={{flex:1,justifyContent: 'center',flexDirection:'row',alignItems:'center'}}>
             <View style={{flex:1,justifyContent: 'center',alignItems:'flex-start'}}>
                 <Text style={{fontSize:12}}>Ocassion</Text>
             </View>
@@ -230,7 +235,7 @@ export default class ControlPanel extends Component {
                 <Image source={require('../../assets/images/diagonal-arrow.png')} resize='center' style={{width:10,height:10}}/>
             </View>
           </View>
-          <View style={{flex:1,justifyContent: 'center',flexDirection:'row',alignItems:'center',paddingLeft:20,paddingRight:20}}>
+          <View style={{flex:1,justifyContent: 'center',flexDirection:'row',alignItems:'center'}}>
             <View style={{flex:1,justifyContent: 'center',alignItems:'flex-start'}}>
                 <Text style={{fontSize:12}}>Gift Type</Text>
             </View>
@@ -239,7 +244,7 @@ export default class ControlPanel extends Component {
             </View>
           </View>
 
-          <View style={{flex:1,justifyContent: 'center',alignItems:'flex-start',flexDirection:'row',paddingLeft:20,paddingRight:20,paddingTop:20}}>
+          <View style={{flex:1,justifyContent: 'center',alignItems:'flex-start',flexDirection:'row',paddingTop:20}}>
             <View style={{flex:2}}>
                 <Text style={{fontSize:10}}>Copyright @2017 . All rights reserved</Text>
             </View>
@@ -250,6 +255,7 @@ export default class ControlPanel extends Component {
 
         </View>
       </View>
+      </ScrollView>
       </View>
 
 
